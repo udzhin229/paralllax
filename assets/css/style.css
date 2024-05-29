@@ -1,0 +1,416 @@
+
+@font-face {
+    font-family: "MostWanted";
+    src: url("/assets/fonts/MostWazted.ttf");
+}
+@font-face {
+    font-family: "DollarBail";
+    src: url("/assets/fonts/20000DollarBail.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+/Edge */
+    cursor: url('/assets/cursor/Arrow.cur'), auto;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; /* Можно изменить цвет фона */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#preloader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+}
+
+.popup_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 10px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    max-width: 210px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    transform: translateX(130%);
+    transition: all ease-in-out .2s;
+    z-index: 10;
+    -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+    -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+    box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+
+    #close_popup {
+        cursor: pointer;
+        width: 120px;
+        height: 120px;
+        position: relative;
+    }
+    #close_popup::after {
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        background: #000;
+        border-radius: 10px;
+        content: "";
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+    #close_popup::before {
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        background: #000;
+        border-radius: 10px;
+        content: "";
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        
+        a {
+            text-decoration: none;
+            font-size: 40px;
+            text-align: center;
+            font-family: 'MostWanted';
+            color: black;
+            line-height: 60%;
+            width: 100%;
+        }
+    }
+}
+.popup_menu.open {
+    transform: translate(0);
+    transition: all ease-in-out .2s;
+}
+
+.main_header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+
+    .title {
+        font-size: 56px;
+        font-family: 'MostWanted';
+        color: black;
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    }
+
+    .left_head {
+        position: relative;
+    }
+    .left_head::after {
+        display: block;
+        content: "";
+        position: absolute;
+        background-image: url('/assets/images/gavblack.png');
+        background-size: contain;
+        width: 93px;
+        aspect-ratio: 1/1;
+        top: 4px;
+        left: 8px;
+    }
+
+    .right_head {
+        position: relative;
+        img {
+            cursor: pointer;
+        }
+    }
+
+    .right_head::after {
+        pointer-events: none;
+        display: block;
+        content: "";
+        position: absolute;
+        background-image: url('/assets/images/menu_icon.png');
+        background-size: contain;
+        width: 65px;
+        aspect-ratio: 1/1;
+        top: 12px;
+        right: 16px;
+        transform: rotate(340deg);
+    }
+}
+
+.second_header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+
+    .title {
+        font-size: 56px;
+        font-family: 'MostWanted';
+        color: black;
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    }
+
+    .logo {
+        position: absolute;
+        right: 30px;
+        top: 40px;
+        width: 135px;
+    }
+}
+
+section.home {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    .container {
+        width: 100%;
+        max-width: 1380px;
+        padding: 180px 15px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 414px);
+        justify-content: space-between;
+        .cards {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            .cards_img {
+                cursor: pointer;
+                width: 100%;
+                height: 525px;
+                -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+                -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+                box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+                transition: all ease-in-out .1s;
+            }
+            .cards_img:hover {
+                transform: scale(1.01);
+                transition: all ease-in-out .1s;
+            }
+            h3 {
+                cursor: pointer;
+                font-size: 56px;
+                text-align: center;
+                font-family: 'MostWanted';
+                color: black;
+                line-height: 70%;
+            }
+        }
+    }
+}
+
+section.contacts {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    .container {
+        width: 100%;
+        max-width: 1380px;
+        padding: 180px 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+
+        h1 {
+            font-size: 92px;
+            text-align: center;
+            font-family: 'MostWanted';
+            color: black;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            .link {
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                .img_map {
+                    max-width: 50px;
+                }
+                .img_inst {
+                    max-width: 50px;
+                }
+                .img_post {
+                    max-width: 60px;
+                }
+                h2 {
+                    text-align: center;
+                    font-size: 64px;
+                    text-align: center;
+                    font-family: 'MostWanted';
+                    color: black;
+                    line-height: 100%;
+                }
+            }
+        }
+    }
+}
+
+section.refund {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    .container {
+        width: 100%;
+        max-width: 1680px;
+        padding: 110px 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 15px;
+
+        .title {
+            text-align: left;
+            font-size: 78px;
+            font-family: 'MostWanted';
+            color: black;
+            line-height: 100%;
+        }
+
+        .text {
+            text-align: left;
+            font-family: "DollarBail";
+            color: #000;
+            font-size: 23px;
+            white-space: pre-line;
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+section.product {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    .container {
+        width: 100%;
+        max-width: 1100px;
+        padding: 180px 15px 0;
+        display: flex;
+        justify-content: space-between;
+
+        .cards_img {
+            cursor: pointer;
+            max-width: 414px;
+            width: 100%;
+            height: 525px;
+            -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+            -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+            box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.54);
+            transition: all ease-in-out .1s;
+        }
+        .text_block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 90px;
+
+            .product_title {
+                text-align: center;
+                font-size: 92px;
+                font-family: 'MostWanted';
+                color: black;
+                line-height: 100%;
+            }
+            .product_size {
+                text-align: center;
+                font-size: 64px;
+                font-family: 'MostWanted';
+                color: black;
+                line-height: 110%;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                div {
+                    width: 65px;
+                    cursor: pointer;
+                }
+
+                div.active {
+                    background-image: url('/assets/images/round.png');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: 0px 0px;
+                }
+            }
+
+            button {
+                cursor: pointer;
+                border-width: 3px 6px;
+                border-color: #000;
+                border-style: solid;
+                padding: 0 40px;
+                text-align: center;
+                font-size: 76px;
+                font-family: 'MostWanted';
+                color: black;
+                line-height: 100%;
+            }
+        }
+    }
+}

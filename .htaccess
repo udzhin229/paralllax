@@ -1,0 +1,7 @@
+# Включение модуля перезаписи URL
+RewriteEngine On
+
+# Правило для обработки URL без расширения
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ $1.html [L]
